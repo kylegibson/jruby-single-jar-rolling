@@ -1,0 +1,28 @@
+TASKS
+
+User Interface x 2
+
+Worker App (Client), Customer App (Client/Server)
+
+Worker App connects to customer app on two sockets. First socket
+is a command socket and initializes the connection. 
+
+[CMD] > connect_to <customer_host/ip> <customer_port>
+- wait for connection to establish 
+[CMD:send] wowopen <host> <port>
+= 123.123.123.123 localport
+[CMD:send] status
+= good, speed, etc
+
+[DATA:open] 123.123.123.123 localhost
+[Customer|Data:open] wowhost wowport]
+
+Keeping track of number of bytes sent / received in a time period
+net loadavg -> 2, 5, 15?
+
+Initial setup for async
+Relay protocol client/server/client (worker/customer/blizzard/customer/worker)
+Command protocol client/server (worker/customer/worker)
+
+
+
