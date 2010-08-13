@@ -1,6 +1,8 @@
 HERE = File.expand_path(File.dirname(__FILE__))
 JRUBY = "scripts/jruby"
 
+task :default => ["jruby:spec:run"]
+
 namespace :jruby do
 
 	desc "Run JRuby help"
