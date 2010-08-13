@@ -1,0 +1,3 @@
+#!/bin/bash
+JRUBY_COMPLETE="lib/jruby-complete.jar"
+java -Xmx500m -Xss1024k -jar "$JRUBY_COMPLETE" $@

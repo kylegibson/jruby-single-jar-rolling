@@ -1,7 +1,5 @@
 HERE = File.expand_path(File.dirname(__FILE__))
-JRUBY_COMPLETE = "lib/jruby-complete.jar"
-JRUBY = "java -Xmx500m -Xss1024k -jar #{JRUBY_COMPLETE}"
-
+JRUBY = "scripts/jruby"
 
 namespace :jruby do
 
