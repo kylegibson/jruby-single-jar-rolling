@@ -63,18 +63,24 @@ app.run
     f.close
   end
 
-  task :compile_ruby_files do
-
+  output_directory = "classes"
+  task :compile_ruby_files => [:generate_application_bootstrap_rb] do
+    mkdir_p output_directory
+    package = "com/nutwow/nutwow"
+    sh %|#{JRUBYC} -p #{package} -t #{output_directory} src|
   end
+
 
   task :compile_main_class => [:generate_main_java] do
-    
+    mkdir_p output_directory
+    sh %|javac -target 1.6 -d #{output_directory} -classpath lib/jruby-complete.jar src/Main.java|
   end
 
+  desc "Compile all source files into class files"
+  task :java_compile => [:compile_ruby_files, :compile_main_class]
+
   desc "Build the deliverable jar"
-  task :build => [:generate_main_java, 
-    :generate_build_dist_xml, 
-    :generate_build_dist_xml] do
+  task :build => [:java_compile, :generate_build_dist_xml] do
 
     build_cmd = "ant dist"
     if PLATFORM =~ /mswin/

@@ -1,7 +1,8 @@
-load "dist.rake"
-
 HERE = File.expand_path(File.dirname(__FILE__))
 JRUBY = "scripts/jruby"
+JRUBYC = "scripts/jrubyc"
+
+load "dist.rake"
 
 task :default => ["jruby:spec:run"]
 

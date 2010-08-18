@@ -2,3 +2,5 @@
 src/Main.java
 src/application_bootstrap.rb
 build_dist.xml
+classes
+*.class
