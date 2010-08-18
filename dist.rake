@@ -20,7 +20,7 @@ public class Main {
 }
       |
     f = File.new path, "w"
-    f.write main_java
+    f.write main_java.strip
     f.close
   end
 
@@ -32,11 +32,11 @@ include Java
 $LOAD_PATH << "src"                      # running from filesystem
 $LOAD_PATH << "#{package.gsub(".","/")}" # running from jar
 require "nutwow"
-nutwow = nutwow.new
-nutwow.run
+app = NutWOW.new
+app.run
       |
     f = File.new path, "w"
-    f.write application_bootstrap_rb
+    f.write application_bootstrap_rb.strip
     f.close
   end
 
@@ -59,7 +59,7 @@ nutwow.run
   </target>
       |
     f = File.new path, "w"
-    f.write build_dist_xml_rb
+    f.write build_dist_xml_rb.strip
     f.close
   end
 

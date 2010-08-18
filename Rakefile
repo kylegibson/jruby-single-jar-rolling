@@ -1,9 +1,16 @@
-load "build_dist.rake"
+load "dist.rake"
 
 HERE = File.expand_path(File.dirname(__FILE__))
 JRUBY = "scripts/jruby"
 
 task :default => ["jruby:spec:run"]
+
+namespace :nutwow do
+  desc "Run nutwow"
+  task :run => ['dist:generate_application_bootstrap_rb'] do
+    sh %|#{JRUBY} src/application_bootstrap.rb|
+  end
+end
 
 namespace :jruby do
 	desc "Run JRuby help"
