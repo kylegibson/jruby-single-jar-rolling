@@ -1,4 +1,16 @@
 namespace :dist do
+  require 'rake/clean'
+
+  CLEAN.include('classes')
+  CLEAN.include('src/Main.java')
+  CLEAN.include('src/application_bootstrap.rb')
+  CLEAN.include('build_dist.xml')
+  CLOBBER.include('pkg')
+
+  task :run do
+    %x|java -jar pkg/NutWOW.jar|
+  end
+
   task :generate_main_java do
     package = "com.nutwow.nutwow.src"
     path = "src/Main.java"
@@ -79,9 +91,7 @@ app.run
   desc "Compile all source files into class files"
   task :java_compile => [:compile_ruby_files, :compile_main_class]
 
-  desc "Build the deliverable jar"
-  task :build => [:java_compile, :generate_build_dist_xml] do
-
+  task :ant => [:generate_build_dist_xml] do
     build_cmd = "ant dist"
     if PLATFORM =~ /mswin/
       sh(build_cmd + '&') # makes windows wait until build is done
@@ -89,4 +99,7 @@ app.run
       sh build_cmd 
     end
   end
+
+  desc "Build the deliverable jar"
+  task :build => [:java_compile, :ant] 
 end

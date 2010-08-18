@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project [
+       <!ENTITY build_dist SYSTEM "build_dist.xml">
+]>
 <project basedir="." default="" name="NutWOW">
-  <import file="./build_dist.xml"/>
+  &build_dist;
 </project>

@@ -4,3 +4,4 @@ src/application_bootstrap.rb
 build_dist.xml
 classes
 *.class
+pkg
