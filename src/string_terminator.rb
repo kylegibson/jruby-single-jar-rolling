@@ -7,6 +7,6 @@ class StringTerminator < Terminator
 	end
 	def split_at(buffer)
 		index = buffer.index @terminator
-		return buffer[index+@terminator.length..-1], buffer[0..index+@terminator.length]
+		return buffer[0..index+@terminator.length-1], buffer[index+@terminator.length..-1]
 	end
 end

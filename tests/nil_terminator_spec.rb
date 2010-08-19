@@ -7,6 +7,9 @@ describe NilTerminator do
   describe :terminator do
     it { subject.terminator.should == :foo }
   end
+  describe :found_in? do
+    it { subject.found_in?(:dog).should be_true }
+  end
   describe :split_at do
     it { subject.split_at(:bar).should == ["", :bar] }
   end
