@@ -7,7 +7,13 @@ class NutWOW
   def initialize 
   end
 
-  def run
+  def listen server_strategy, host, port
+    server = server_strategy.new :host => host, 
+                                 :port => port 
+    server.start
+  end
+
+  def run # TODO 
     puts "I am running!"
     frame = JFrame.new
     panel = JPanel.new
