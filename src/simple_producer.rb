@@ -1,13 +1,13 @@
 class SimpleProducer < Producer
 	def initialize(data, chunksize=2048)
-		@data = data
-		@chunksize = chunksize
+		@data = data.to_s
+		@chunksize = chunksize.to_i
 	end
 
 	def more
-    ""
-		# d = @data[0..@chunksize]
-		# @data[0..@chunksize - 1] = ""
-		# d
+    range = 0..@chunksize - 1
+		d = @data[range]
+		@data[range] = ""
+		d
 	end
 end
