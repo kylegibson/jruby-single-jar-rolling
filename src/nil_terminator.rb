@@ -1,3 +1,5 @@
+require File.expand_path(File.join(File.dirname(__FILE__), "terminator.rb"))
+
 class NilTerminator < Terminator
 	def initialize(count)
 		super 

@@ -1,3 +1,5 @@
+require File.expand_path(File.join(File.dirname(__FILE__), "producer.rb"))
+
 class SimpleProducer < Producer
 	def initialize(data, chunksize=2048)
 		@data = data.to_s

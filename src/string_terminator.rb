@@ -1,3 +1,5 @@
+require File.expand_path(File.join(File.dirname(__FILE__), "terminator.rb"))
+
 class StringTerminator < Terminator
 	def initialize(str)
 		super str

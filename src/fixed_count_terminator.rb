@@ -1,5 +1,6 @@
 require File.expand_path(File.join(File.dirname(__FILE__), "terminator.rb"))
-	class FixedCountTerminator < Terminator
+
+class FixedCountTerminator < Terminator
 	def initialize(count)
 		super count
 	end
