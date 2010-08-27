@@ -5,7 +5,7 @@
     <mkdir dir="pkg"/>
     <jarjar destfile="pkg/NutWOW.jar">
       <manifest>
-        <attribute name="Main-Class" value="#{package}.Main"/>
+        <attribute name="Main-Class" value="<%=package%>.Main"/>
       </manifest>
       <fileset dir="classes"/>
       <zipfileset src="lib/jruby-complete.jar"/>
