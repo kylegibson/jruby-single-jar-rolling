@@ -1,0 +1,6 @@
+include Java
+$LOAD_PATH << "src"                      # running from filesystem
+$LOAD_PATH << "<%=package.gsub(".","/")%>" # running from jar
+require "nutwow"
+app = NutWOW.new
+app.run
